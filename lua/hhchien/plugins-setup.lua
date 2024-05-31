@@ -81,13 +81,12 @@ return packer.startup(function(use)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting and linting
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("jose-elias-alvarez/none-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
-  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
-
+	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
 	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
