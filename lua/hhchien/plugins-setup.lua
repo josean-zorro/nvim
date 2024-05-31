@@ -81,7 +81,7 @@ return packer.startup(function(use)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting and linting
-	use("jose-elias-alvarez/none-ls.nvim")
+	use("nvimtools/none-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
 
 	-- DAP
