@@ -10,7 +10,14 @@ local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
+-- Custom handler for sqlfluff diagnostics
+--local function handle_sqlfluff_diagnostics(params)
+--	for _, diagnostic in ipairs(params.output) do
+--		print(vim.inspect(_), vim.inspect(diagnostic))
+--	end
+--
+--	return params.output
+--end
 -- customize sqlfluff diagnositics handler
 local function handle_sqlfluff_diagnostics(params)
 	local sqlfluff_diagnostics = {}
