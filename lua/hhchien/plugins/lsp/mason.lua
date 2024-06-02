@@ -34,6 +34,7 @@ mason_lspconfig.setup({
 		"cssls",
 		"lua_ls",
 		"emmet_ls",
+		"pylsp",
 	},
 	-- auto-install configured servers (with lspconfig)
 	--automatic_installation = true, -- not the same as ensure_installed
@@ -47,6 +48,10 @@ mason_null_ls.setup({
 		"eslint_d", -- ts/js linter,
 		"standartjs", -- ts/js linter and formatter
 		"sqlfluff", -- sql linter
+		"sqlfmt",
+		"black",
+		"isort",
+		"flake8",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	--automatic_installation = true,
