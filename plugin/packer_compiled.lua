@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/hung-hsiang/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
     url = "https://github.com/nvimtools/none-ls.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/hung-hsiang/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/hung-hsiang/.local/share/nvim/site/pack/packer/start/nvim-cmp",

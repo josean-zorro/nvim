@@ -82,6 +82,7 @@ return packer.startup(function(use)
 
 	-- formatting and linting
 	use("nvimtools/none-ls.nvim")
+	use("jose-elias-alvarez/null-ls.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("jay-babu/mason-null-ls.nvim")
 
 	-- DAP

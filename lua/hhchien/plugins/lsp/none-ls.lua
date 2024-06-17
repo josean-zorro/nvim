@@ -12,43 +12,11 @@ local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- Custom handler for sqlfluff diagnostics
 --local function handle_sqlfluff_diagnostics(params)
---	for _, diagnostic in ipairs(params.output) do
---		print(vim.inspect(_), vim.inspect(diagnostic))
---	end
---
---	return params.output
+--for _, diagnostic in ipairs(params.output) do
+--	print(vim.inspect(_), vim.inspect(diagnostic))
 --end
--- customize sqlfluff diagnositics handler
-local function handle_sqlfluff_diagnostics(params)
-	local sqlfluff_diagnostics = {}
-	for _, sqlfluff_diagnostic in ipairs(params.output) do
-		-- Extract necessary information
-		local row = sqlfluff_diagnostic.start_line
-		local col = sqlfluff_diagnostic.start_column
-		local end_row = sqlfluff_diagnostic.end_line
-		local end_col = sqlfluff_diagnostic.end_column
-		local message = sqlfluff_diagnostic.message
 
-		-- Construct the diagnostic object
-		table.insert(sqlfluff_diagnostics, {
-			row = row,
-			col = col,
-			end_row = end_row,
-			end_col = end_col,
-			source = "sqlfluff",
-			message = message,
-			severity = vim.lsp.protocol.DiagnosticSeverity.Warning,
-		})
-	end
-	return sqlfluff_diagnostics
-end
--- Custom handler for sqlfluff diagnostics
---local function handle_sqlfluff_diagnostics(params)
---	for _, diagnostic in ipairs(params.output) do
---		print(vim.inspect(diagnostic))
---	end
-
---	return params.output
+--return params.output
 --end
 
 -- configure null_ls
@@ -65,7 +33,6 @@ null_ls.setup({
 		}),
 		diagnostics.sqlfluff.with({ --sql linter
 			extra_args = { "--dialect", "postgres" },
-			on_output = handle_sqlfluff_diagnostics,
 			cwd = function()
 				return vim.fn.fnamemodify(vim.fn.findfile("dbt_project.yml", vim.fn.getcwd() .. ";"), ":p:h")
 			end,
