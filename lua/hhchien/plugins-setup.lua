@@ -90,6 +90,12 @@ return packer.startup(function(use)
 	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
 	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({
+		"jonroosevelt/gemini-cli.nvim",
+		config = function()
+			require("gemini").setup()
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
