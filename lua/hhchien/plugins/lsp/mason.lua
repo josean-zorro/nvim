@@ -37,7 +37,8 @@ mason_lspconfig.setup({
 		"pylsp",
 	},
 	-- auto-install configured servers (with lspconfig)
-	--automatic_installation = true, -- not the same as ensure_installed
+	automatic_installation = true, -- not the same as ensure_installed
+	automatic_enable = false,
 })
 
 mason_null_ls.setup({
@@ -54,7 +55,7 @@ mason_null_ls.setup({
 		"flake8",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
-	--automatic_installation = true,
+	automatic_installation = true,
 })
 
 mason_nvim_dap.setup({

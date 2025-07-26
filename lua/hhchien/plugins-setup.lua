@@ -62,8 +62,8 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- useful snippets
 
 	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+	use("mason-org/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+	use("mason-org/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 	use("jay-babu/mason-nvim-dap.nvim") --bridges gap btw mason and nvim-dap
 
 	-- configuring lsp servers

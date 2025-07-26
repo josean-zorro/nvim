@@ -127,7 +127,7 @@ _G.packer_plugins = {
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/kevinchien/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+    url = "https://github.com/mason-org/mason-lspconfig.nvim"
   },
   ["mason-null-ls.nvim"] = {
     loaded = true,
@@ -142,7 +142,7 @@ _G.packer_plugins = {
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/kevinchien/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
+    url = "https://github.com/mason-org/mason.nvim"
   },
   ["none-ls.nvim"] = {
     loaded = true,
