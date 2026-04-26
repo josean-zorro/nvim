@@ -21,6 +21,11 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- configure null_ls
 null_ls.setup({
+	default_timeout = 60000, -- 60 seconds global timeout
+	flags = {
+		debounce_text_changes = 150,
+		allow_incremental_sync = true,
+	},
 	-- setup formatters & linters
 	sources = {
 		--  to disable file types use
@@ -28,15 +33,20 @@ null_ls.setup({
 		formatting.standardjs, --js/ts formatter
 		diagnostics.standardjs, -- js/ts linter
 		formatting.stylua, -- lua formatter
-		formatting.sqlfmt.with({ --sql formatter
-			command = { "sqlfmt" },
-		}),
-		diagnostics.sqlfluff.with({ --sql linter
-			extra_args = { "--dialect", "postgres" },
-			cwd = function()
-				return vim.fn.fnamemodify(vim.fn.findfile("dbt_project.yml", vim.fn.getcwd() .. ";"), ":p:h")
+		formatting.sqlfluff.with({
+			extra_args = { "--FIX-EVEN-UNPARSABLE" },
+			cwd = function(params)
+				-- Use the file's directory as the working directory so .sqlfluff config is found
+				return vim.fn.fnamemodify(params.bufname, ":h")
 			end,
+			timeout = 30000, -- 30 seconds timeout for large SQL files
 		}),
+		--diagnostics.sqlfluff.with({ --sql linter
+		--extra_args = { "--dialect", "sparksql" },
+		--cwd = function()
+		--return vim.fn.fnamemodify(vim.fn.findfile(".git", vim.fn.getcwd() .. ";"), ":p:h")
+		--end,
+		--}),
 		formatting.black, --python formatter
 		formatting.isort.with({ extra_args = { "--profile", "black" } }),
 		diagnostics.flake8,
@@ -62,6 +72,7 @@ null_ls.setup({
 							return client.name == "null-ls"
 						end,
 						bufnr = bufnr,
+						timeout_ms = 60000, -- 60 seconds timeout for format
 					})
 				end,
 			})

@@ -33,3 +33,5 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
+-- LSP timeout for large file formatting
+vim.lsp.set_log_level("off") -- reduce LSP logging
