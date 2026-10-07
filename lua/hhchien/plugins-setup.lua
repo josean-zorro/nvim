@@ -77,12 +77,12 @@ return packer.startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	}) -- enhanced lsp uis
-	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	--use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting and linting
 	use("nvimtools/none-ls.nvim")
-	use("jose-elias-alvarez/null-ls.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	--use("jose-elias-alvarez/none-ls.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("jay-babu/mason-null-ls.nvim")
 
 	-- DAP
@@ -90,12 +90,6 @@ return packer.startup(function(use)
 	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
 	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-	use({
-		"jonroosevelt/gemini-cli.nvim",
-		config = function()
-			require("gemini").setup()
-		end,
-	})
 
 	if packer_bootstrap then
 		require("packer").sync()
