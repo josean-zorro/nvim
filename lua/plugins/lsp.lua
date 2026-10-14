@@ -24,6 +24,9 @@ return {
           -- end
           --end,
         },
+        bqls = {
+          filetypes = { "sql" },
+        },
       },
     },
   },
